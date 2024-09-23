@@ -77,11 +77,30 @@ jobs:
               run: echo ${{ steps.docker_build.outputs.digest }}
 
  #   This is CD- Continous delivery part of configuration, where code is deployed into production environment
-    deploy:
-        runs-on: ubuntu-latest
-        needs: [build]
+    # deploy:
+        # runs-on: ubuntu-latest
+        # needs: [build]
+        # environment:
+        #     name: production # production environment variables should be defined on github repository secrets
 
-        steps:
-            - name: deploying stuff
-              run: echo "going to deploy some stuff"
+        # steps:
+        #     #- name: deploying stuff
+            #  run: echo "going to deploy some stuff"
+            #Steps below are just for reference how to deploy app to Heroku
+            # 1. pull our github repo
+            # 2. install heroku cli
+            # 3. login to heroku
+            # 4. add git remote for heroku
+            # 5. git push heroku main
+
+            # OR alternatively use github action marketplace to use existing action like "Heroku Deploy" which configuration (commented out )is shows below:
+            # - name: pulling git repo
+            #   uses: actions/checkout@v2
+              
+            # - name: Deploying to Heroku
+            #   uses: akhileshns/heroku-deploy@v3.12.12 # This is heroku deploy action, it uses heroku cli under the hood
+            #   with:
+            #     heroku_api_key: ${{secrets.HEROKU_API_KEY}} # this is secret on github repository, it is used to authenticate with heroku
+            #     heroku_app_name: ${{secrets.HEROKU_APP_NAME}} # this is secret on github repository, it is used to specify heroku app name
+            #     heroku_email: ${{secrets.HEROKU_EMAIL}} # this is secret on github repository, it is used to specify heroku email
            
