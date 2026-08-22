@@ -30,7 +30,7 @@ passlib==1.7.4
 pluggy==1.5.0
 psycopg2 @ git+https://github.com/psycopg/psycopg2.git@658afe4cd90d3e167d7c98d22824a8d6ec895b1c
 psycopg2-binary==2.9.9
-pyasn1==0.6.0
+pyasn1==0.6.4
 pycparser==2.22
 pydantic==2.8.2
 pydantic-extra-types==2.9.0
